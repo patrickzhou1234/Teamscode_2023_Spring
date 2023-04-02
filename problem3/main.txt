@@ -1,0 +1,53 @@
+// https://spring23.teamscode.org/contest/3/problem/3
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+#define MAX_INT 2147483647
+
+struct round
+{
+    int w, l;
+};
+
+int fact(int n)
+{
+
+    return (n == 0) || (n == 1) ? 1 : n * fact(n - 1);
+}
+
+int main()
+{
+    int n, k, i, j = 0, m = 0, ct = 0, f;
+    cin >> n >> k;
+    vector<round> rounds(n);
+    round rd;
+    bool fd;
+    for (i = 0; i < n; i++)
+    {
+        for (m = m; m < k; m++)
+        {
+            for (j = j; j < k; j++)
+            {
+                rd.w = j;
+                rd.l = m;
+                rounds[i] = rd;
+                fd = false;
+                for (f = 0; f < n; f++)
+                {
+                    if (rounds[f].w != 0)
+                    {
+                        fd = true;
+                    }
+                }
+                if (fd)
+                {
+                    ct++;
+                }
+            }
+        }
+    }
+    cout << ct;
+    return 0;
+}
